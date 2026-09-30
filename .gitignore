@@ -36,3 +36,4 @@ coverage
 .cache
 .parcel-cache
 .eslintcache
+.vite
