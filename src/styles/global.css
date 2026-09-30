@@ -1,0 +1,239 @@
+/**
+ * 全局基础样式（重置 + 公共类）
+ * 纯 CSS，禁止 Tailwind / CSS-in-JS
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--st-font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--st-text);
+  background: var(--st-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--st-primary);
+  color: #fff;
+}
+
+/* ---------- 滚动条 ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cfcbc3;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--st-text-light);
+}
+
+/* ================= 公共布局 ================= */
+.st-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--st-bg);
+}
+
+.st-main {
+  flex: 1;
+}
+
+.st-container {
+  max-width: var(--st-content-max);
+  margin: 0 auto;
+  padding: 0 var(--st-gutter);
+  width: 100%;
+}
+
+.st-container--narrow {
+  max-width: var(--st-content-max-narrow);
+}
+
+.st-container--wide {
+  max-width: var(--st-content-max-wide);
+}
+
+/* ================= 区块标题 ================= */
+.st-section-title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-align: center;
+  color: var(--st-text);
+}
+
+.st-section-title-bar {
+  width: 48px;
+  height: 3px;
+  background: var(--st-primary);
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+
+.st-section-desc {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--st-text-muted);
+  letter-spacing: 1px;
+  max-width: 720px;
+  margin: 18px auto 0;
+  line-height: 1.9;
+}
+
+/* ================= 空态 / 加载 ================= */
+.st-empty {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--st-text-light);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.st-loading {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--st-text-light);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+/* ================= 文本工具类 ================= */
+.st-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.st-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.st-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ================= 响应式断点（1920 基准 → 1440 / 1200 / 1024 / 992 / 768） ================= */
+@media (max-width: 1440px) {
+  :root {
+    --st-gutter: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --st-gutter: 32px;
+  }
+
+  .st-section-title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --st-gutter: 24px;
+  }
+
+  .st-section-desc {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 992px) {
+  .st-section-title {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --st-gutter: 16px;
+  }
+
+  .st-section-title {
+    font-size: 21px;
+    letter-spacing: 2px;
+  }
+
+  .st-section-desc {
+    font-size: 12.5px;
+  }
+}
