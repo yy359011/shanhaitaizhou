@@ -188,39 +188,3 @@ export interface PageQuery {
   type?: DocType | ''
   sort?: string
 }
-
-/** 登录用户 */
-export interface UserInfo {
-  username: string
-  nickname: string
-  role: 'user' | 'admin'
-  token: string
-}
-
-/** 后台用户列表项 */
-export interface AdminUser {
-  id: number
-  username: string
-  nickname: string
-  role: string
-  dept: string
-  status: '启用' | '停用'
-  lastLogin: string
-}
-
-/** 后台字段配置项 */
-export interface FieldConfig {
-  name: string
-  code: string
-  dataType: string
-  required: '必填' | '选填'
-  desc: string
-  enabled: boolean
-}
-
-/** 后台模块开关 */
-export interface ModuleConfig {
-  name: string
-  desc: string
-  enabled: boolean
-}

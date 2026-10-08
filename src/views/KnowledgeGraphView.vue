@@ -7,15 +7,14 @@
  * 该路由为独立顶层路由，因此导航栏与页脚在本视图内自行渲染。
  */
 import { nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
-import { RouterLink, useRoute, useRouter } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 
 import { getGraphById, getGraphList, GRAPH_CATEGORY_META, GRAPH_CATEGORY_ORDER } from '@/api/graph'
-import { SYSTEM_SETTINGS } from '@/mock/admin'
+import { SYSTEM_SETTINGS } from '@/constants/site'
 import logoUrl from '@/images/logo.png'
 import type { GraphCategory, GraphData, NodeGroup } from '@/types'
 
 const route = useRoute()
-const router = useRouter()
 
 /* ==================== 导航栏 ==================== */
 
@@ -814,10 +813,6 @@ watch(
           </RouterLink>
         </li>
       </ul>
-
-      <div class="navbar-actions">
-        <el-button text class="admin-entry" @click="router.push({ name: 'admin-login' })">后台管理</el-button>
-      </div>
     </nav>
 
     <div class="kg-wrap">
@@ -990,21 +985,6 @@ watch(
   color: var(--st-primary);
   font-weight: 600;
   background: var(--st-primary-soft);
-}
-
-.navbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.admin-entry {
-  color: var(--st-text-muted);
-}
-
-.admin-entry:hover {
-  color: var(--st-primary);
 }
 
 /* ---------- 主体：左侧图谱分类 + 右侧画布 ---------- */
@@ -1361,8 +1341,7 @@ watch(
 }
 
 @media (max-width: 768px) {
-  .brand-text,
-  .admin-entry {
+  .brand-text {
     display: none;
   }
 

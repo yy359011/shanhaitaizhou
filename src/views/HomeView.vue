@@ -9,7 +9,7 @@ import { RouterLink, useRouter } from 'vue-router'
 import { getScenerySpots, getFoodItems } from '@/api/home'
 import { findLiteratureByTitle, getRecommendList } from '@/api/literature'
 import CoverImage from '@/components/CoverImage.vue'
-import { SYSTEM_SETTINGS } from '@/mock/admin'
+import { SYSTEM_SETTINGS } from '@/constants/site'
 import bannerUrl from '@/images/banner.jpeg'
 import type { FoodItem, RecommendCard, ScenerySpot } from '@/types'
 

@@ -22,12 +22,6 @@ const instance: AxiosInstance = axios.create({
   headers: { 'Content-Type': 'application/json' },
 })
 
-instance.interceptors.request.use((config) => {
-  const token = sessionStorage.getItem('st_token')
-  if (token) config.headers.Authorization = `Bearer ${token}`
-  return config
-})
-
 instance.interceptors.response.use(
   (response) => response,
   (error) => Promise.reject(error)

@@ -4,12 +4,11 @@
  * 首页（hero 满屏）不预留顶部内边距，其余页面按原型预留 64px
  */
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
-import { SYSTEM_SETTINGS } from '@/mock/admin'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { SYSTEM_SETTINGS } from '@/constants/site'
 import logoUrl from '@/images/logo.png'
 
 const route = useRoute()
-const router = useRouter()
 const scrolled = ref(false)
 const isHome = computed(() => route.name === 'home')
 
@@ -60,10 +59,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
           </RouterLink>
         </li>
       </ul>
-
-      <div class="navbar-actions">
-        <el-button text class="admin-entry" @click="router.push({ name: 'admin-login' })">后台管理</el-button>
-      </div>
     </nav>
 
     <main class="public-main">
@@ -180,21 +175,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   background: var(--st-primary-soft);
 }
 
-.navbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.admin-entry {
-  color: var(--st-text-muted);
-}
-
-.admin-entry:hover {
-  color: var(--st-primary);
-}
-
 /* ---------- 版权栏 ---------- */
 .site-footer {
   background: #1a1a1a;
@@ -228,9 +208,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 @media (max-width: 768px) {
   .brand-text {
-    display: none;
-  }
-  .admin-entry {
     display: none;
   }
 }
